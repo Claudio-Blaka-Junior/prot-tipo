@@ -420,7 +420,7 @@ function setupCheckoutButton() {
 
 // Função auxiliar
 function getCategoryName(category) {
-    const names = {
+    const names = { 
         'frutas': '🍎 Frutas',
         'verduras': '🥬 Verduras',
         'laticinios': '🧀 Laticínios',
