@@ -1,4 +1,4 @@
-// Array de produtos rurais
+
 const products = [
     {
         id: 1,
