@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroMarket - Produtos Rurais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🌾</span>
+                <h1>AgroMarket</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Vender</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <div class="cart-icon">
+                <button id="cartBtn" class="cart-btn">
+                    🛒 <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Produtos Frescos do Campo</h2>
+                <p>Conectando produtores rurais diretamente aos consumidores</p>
+                <button class="cta-button" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">
+                    Explorar Produtos
+                </button>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">Produtos em Destaque</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="frutas">Frutas</button>
+                <button class="filter-btn" data-filter="verduras">Verduras</button>
+                <button class="filter-btn" data-filter="laticinios">Laticínios</button>
+                <button class="filter-btn" data-filter="graos">Grãos</button>
+            </div>
+            <div id="productsGrid" class="products-grid">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Modal do Carrinho -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🛒 Seu Carrinho</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div id="cartItems" class="cart-items">
+                    <!-- Itens do carrinho -->
+                </div>
+                <div class="cart-total">
+                    <strong>Total: R$ <span id="cartTotal">0.00</span></strong>
+                </div>
+                <button id="checkoutBtn" class="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AgroMarket</h4>
+                <p>Conectando o campo à sua mesa</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Como Vender</a></li>
+                    <li><a href="#">Política de Entrega</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>📞 (11) 1234-5678</p>
+                <p>📧 contato@agromarket.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AgroMarket. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+<script src="script.js" defer></script>
+</body>
+</html>
