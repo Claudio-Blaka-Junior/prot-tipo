@@ -1,587 +1,303 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background-color: #2d5a27;
-    color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-icon {
-    font-size: 2rem;
-}
-
-.logo h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #ffd700;
-}
-
-.cart-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.3s;
-}
-
-.cart-btn:hover {
-    transform: scale(1.1);
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #ff4444;
-    color: white;
-    border-radius: 50%;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.8rem;
-    min-width: 20px;
-    text-align: center;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #2d5a27 0%, #4a8c3f 100%);
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 60px;
-}
-
-.hero-content {
-    padding: 2rem;
-}
-
-.hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.cta-button {
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    background-color: #ffd700;
-    color: #333;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    background-color: #ffed4a;
-}
-
-/* Products Section */
-.products-section {
-    padding: 4rem 5%;
-    background-color: white;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #2d5a27;
-    position: relative;
-}
-
-.section-title:after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background-color: #ffd700;
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-.filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 0.6rem 1.5rem;
-    border: 2px solid #2d5a27;
-    background: white;
-    color: #2d5a27;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background-color: #2d5a27;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
-}
-
-.product-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    border: 1px solid #e0e0e0;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.product-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    background-color: #f0f0f0;
-}
-
-.product-emoji {
-    font-size: 5rem;
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-}
-
-.product-info {
-    padding: 1.5rem;
-}
-
-.product-category {
-    display: inline-block;
-    background-color: #e8f5e8;
-    color: #2d5a27;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-    font-weight: 500;
-}
-
-.product-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-
-.product-description {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.product-price {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #2d5a27;
-    margin-bottom: 1.2rem;
-}
-
-.add-to-cart-btn {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #2d5a27;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.add-to-cart-btn:hover {
-    background-color: #3a7533;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(45, 90, 39, 0.3);
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-}
-
-.modal.show {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background-color: white;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 600px;
-    padding: 2rem;
-    animation: slideUp 0.3s;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.modal-header h3 {
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.close-modal {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #999;
-    transition: color 0.3s;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.close-modal:hover {
-    color: #333;
-    background-color: #f0f0f0;
-}
-
-.cart-items {
-    max-height: 400px;
-    overflow-y: auto;
-    margin-bottom: 1.5rem;
-    padding-right: 0.5rem;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #f0f0f0;
-    gap: 1rem;
-}
-
-.cart-item:hover {
-    background-color: #f9f9f9;
-}
-
-.cart-item-info {
-    flex: 1;
-}
-
-.cart-item-info strong {
-    display: block;
-    margin-bottom: 0.3rem;
-}
-
-.cart-item-info p {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.cart-item-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.quantity-btn {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    font-weight: bold;
-}
-
-.quantity-btn:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.1);
-}
-
-.quantity-display {
-    min-width: 30px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.remove-item {
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.remove-item:hover {
-    background-color: #cc0000;
-    transform: scale(1.1);
-}
-
-.cart-total {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem 0;
-    border-top: 2px solid #f0f0f0;
-    text-align: right;
-    color: #333;
-}
-
-.checkout-btn {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.checkout-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-}
-
-/* Footer */
-footer {
-    background-color: #2d5a27;
-    color: white;
-    padding-top: 3rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 0 5% 2rem;
-}
-
-.footer-section h4 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-section a:hover {
-    color: #ffd700;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    background-color: rgba(0,0,0,0.1);
-}
-
-/* Notifications */
-.notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #2d5a27 0%, #4a8c3f 100%);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    z-index: 3000;
-    animation: slideInRight 0.3s ease-out;
-    font-weight: 500;
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-}
-
-/* Scrollbar personalizada */
-.cart-items::-webkit-scrollbar {
-    width: 8px;
-}
-
-.cart-items::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.cart-items::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-.cart-items::-webkit-scrollbar-thumb:hover {
-    background: #555;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px;transition:all 0.3s ease}
+.btn-acessibilidade{position:fixed;top:20px;right:20px;z-index:1000;background:#4a00e0;color:white;border:none;width:50px;height:50px;border-radius:50%;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,0.3);transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+.btn-acessibilidade:hover{transform:scale(1.1);background:#6c3ce0}
+.menu-acessibilidade{position:fixed;top:80px;right:20px;z-index:999;background:white;border-radius:15px;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,0.2);display:none;min-width:250px;animation:slideDown 0.3s ease-out}
+.menu-acessibilidade.ativo{display:block}
+.menu-acessibilidade h3{margin-bottom:15px;color:#333;text-align:center;font-size:1.2rem}
+.btn-acess{display:block;width:100%;padding:12px;margin-bottom:10px;border:2px solid #e0e0e0;background:#f8f9fa;border-radius:8px;cursor:pointer;font-size:0.95rem;transition:all 0.3s;text-align:left;color:#333}
+.btn-acess:hover{background:#667eea;color:white;border-color:#667eea;transform:translateX(5px)}
+@keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.container{max-width:1100px;margin:0 auto}
+.header{text-align:center;color:white;margin-bottom:30px;animation:fadeIn 1s ease-in}
+.header h1{font-size:2.5rem;margin-bottom:10px}
+.tela{display:none;animation:slideIn 0.5s ease-out}
+.tela.ativa{display:block}
+.card{background:white;border-radius:15px;padding:30px;box-shadow:0 10px 40px rgba(0,0,0,0.1)}
+.botoes-selecao{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:30px}
+.btn-agro,.btn-leite,.btn-suinos,.btn-ovelhas,.btn-cabras,.btn-cavalos,.btn-aves{padding:30px 12px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s}
+.btn-agro{background:linear-gradient(135deg,#11998e 0%,#38ef7d 100%);color:white}
+.btn-leite{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white}
+.btn-suinos{background:linear-gradient(135deg,#f9a8d4 0%,#ec4899 100%);color:white}
+.btn-ovelhas{background:linear-gradient(135deg,#a5d6a7 0%,#66bb6a 100%);color:white}
+.btn-cabras{background:linear-gradient(135deg,#bcaaa4 0%,#8d6e63 100%);color:white}
+.btn-cavalos{background:linear-gradient(135deg,#bcaaa4 0%,#795548 100%);color:white}
+.btn-aves{background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 100%);color:white}
+.btn-agro:hover,.btn-leite:hover,.btn-suinos:hover,.btn-ovelhas:hover,.btn-cabras:hover,.btn-cavalos:hover,.btn-aves:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.2)}
+.btn-voltar{background:#6c757d;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;margin-bottom:20px;font-size:1rem}
+.formulario{margin-top:20px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;margin-bottom:8px;font-weight:600;color:#333}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;transition:border-color 0.3s;font-family:'Poppins',sans-serif}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#667eea}
+.btn-enviar{width:100%;padding:15px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;border:none;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:transform 0.3s}
+.btn-enviar:hover{transform:translateY(-2px)}
+.btn-enviar-suinos{background:linear-gradient(135deg,#ec4899 0%,#be185d 100%)}
+.btn-enviar-ovelhas{background:linear-gradient(135deg,#66bb6a 0%,#388e3c 100%)}
+.btn-enviar-cabras{background:linear-gradient(135deg,#8d6e63 0%,#5d4037 100%)}
+.btn-enviar-cavalos{background:linear-gradient(135deg,#795548 0%,#4e342e 100%)}
+.btn-enviar-aves{background:linear-gradient(135deg,#f59e0b 0%,#d97706 100%)}
+.resultado{margin-top:30px;padding:20px;background:#f8f9fa;border-radius:10px;border-left:5px solid #667eea}
+.checkboxes-implementos{display:flex;flex-direction:column;gap:10px;background:#f8f9fa;padding:15px;border-radius:10px;border:2px solid #e0e0e0}
+.checkbox-item{display:flex;align-items:center;gap:10px;padding:12px 15px;background:white;border-radius:8px;cursor:pointer;transition:all 0.3s;font-weight:500;border:2px solid transparent;font-size:1rem}
+.checkbox-item:hover{background:#e8f5e9;border-color:#4caf50;transform:translateX(5px)}
+.checkbox-item input[type="checkbox"]{width:20px;height:20px;cursor:pointer;accent-color:#4caf50}
+.manejo-cultura{margin-top:25px;padding:25px;background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);border-radius:15px;border-left:5px solid #2e7d32;animation:fadeIn 0.5s ease-in}
+.manejo-cultura h3{color:#1b5e20;margin-bottom:20px;font-size:1.4rem}
+.cultura-card{background:white;padding:20px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-left:4px solid #4caf50}
+.cultura-card h4{color:#2e7d32;margin-top:15px;margin-bottom:10px;font-size:1.1rem}
+.cultura-card h4:first-child{margin-top:0}
+.cultura-card p{color:#666;margin-bottom:10px}
+.cultura-card ul{list-style:none;padding:0}
+.cultura-card ul li{padding:6px 0;color:#444;line-height:1.6;border-bottom:1px solid #f0f0f0}
+.cultura-card ul li:last-child{border-bottom:none}
+.cultura-card ul li strong{color:#1b5e20}
+.manutencao-maquinas{margin-top:25px;padding:25px;background:linear-gradient(135deg,#fff3e0 0%,#ffe0b2 100%);border-radius:15px;border-left:5px solid #ff9800;animation:fadeIn 0.5s ease-in}
+.manutencao-maquinas h3{color:#e65100;margin-bottom:20px;font-size:1.4rem}
+.maquina-card{background:white;padding:20px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-left:4px solid #ff9800}
+.maquina-card h4{color:#e65100;margin-bottom:12px;font-size:1.1rem}
+.maquina-card ul{list-style:none;padding:0}
+.maquina-card ul li{padding:6px 0;color:#555;line-height:1.6;border-bottom:1px solid #f5f5f5}
+.maquina-card ul li:last-child{border-bottom:none}
+.maquina-card ul li strong{color:#333}
+.higiene-ordenha{margin-top:25px;padding:25px;background:linear-gradient(135deg,#e1f5fe 0%,#b3e5fc 100%);border-radius:15px;border-left:5px solid #0288d1;animation:fadeIn 0.5s ease-in}
+.higiene-ordenha h3{color:#01579b;margin-bottom:20px;font-size:1.4rem}
+.higiene-card{background:white;padding:20px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-left:4px solid #0288d1}
+.higiene-card h4{color:#01579b;margin-bottom:12px;font-size:1.1rem;margin-top:15px}
+.higiene-card h4:first-child{margin-top:0}
+.higiene-card p{color:#666;margin-bottom:10px;font-size:0.95rem}
+.higiene-card ul{list-style:none;padding:0;margin-bottom:10px}
+.higiene-card ul li{padding:8px 0;color:#444;line-height:1.6;border-bottom:1px solid #f0f0f0}
+.higiene-card ul li:last-child{border-bottom:none}
+.higiene-card ul li strong{color:#01579b}
+.alimentacao-leite{margin-top:25px;padding:25px;background:linear-gradient(135deg,#fff8e1 0%,#ffecb3 100%);border-radius:15px;border-left:5px solid #ffa000;animation:fadeIn 0.5s ease-in}
+.alimentacao-leite h3{color:#e65100;margin-bottom:20px;font-size:1.4rem}
+.botoes-acoes{margin:25px 0;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.btn-planilha{padding:16px 25px;color:white;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.btn-planilha-vacina{background:linear-gradient(135deg,#2196F3 0%,#1976D2 100%)}
+.btn-planilha-vacina:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(33,150,243,0.5)}
+.btn-planilha-cio{background:linear-gradient(135deg,#e91e63 0%,#c2185b 100%)}
+.btn-planilha-cio:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(233,30,99,0.5)}
+.btn-planilha-higiene{background:linear-gradient(135deg,#00bcd4 0%,#0097a7 100%)}
+.btn-planilha-higiene:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,188,212,0.5)}
+.secao-planilha{margin-top:25px;padding:25px;border-radius:15px;border:2px solid #4caf50;animation:fadeIn 0.5s ease-in;background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%)}
+.secao-cio{background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);border-color:#e91e63}
+.secao-higiene{background:linear-gradient(135deg,#e0f7fa 0%,#b2ebf2 100%);border-color:#00bcd4}
+.secao-suinos{background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);border-color:#ec4899}
+.secao-aves{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-color:#f59e0b}
+.secao-ovelhas{background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);border-color:#66bb6a}
+.secao-cabras{background:linear-gradient(135deg,#efebe9 0%,#d7ccc8 100%);border-color:#8d6e63}
+.secao-cavalos{background:linear-gradient(135deg,#efebe9 0%,#d7ccc8 100%);border-color:#795548}
+.cabecalho-planilha{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:15px;border-bottom:2px solid #4caf50}
+.secao-cio .cabecalho-planilha{border-bottom-color:#e91e63}
+.secao-higiene .cabecalho-planilha{border-bottom-color:#00bcd4}
+.secao-suinos .cabecalho-planilha{border-bottom-color:#ec4899}
+.secao-aves .cabecalho-planilha{border-bottom-color:#f59e0b}
+.secao-ovelhas .cabecalho-planilha{border-bottom-color:#66bb6a}
+.secao-cabras .cabecalho-planilha{border-bottom-color:#8d6e63}
+.secao-cavalos .cabecalho-planilha{border-bottom-color:#795548}
+.cabecalho-planilha h3{color:#2e7d32;font-size:1.4rem}
+.secao-cio .cabecalho-planilha h3{color:#c2185b}
+.secao-higiene .cabecalho-planilha h3{color:#00838f}
+.secao-suinos .cabecalho-planilha h3{color:#be185d}
+.secao-aves .cabecalho-planilha h3{color:#b45309}
+.secao-ovelhas .cabecalho-planilha h3{color:#2e7d32}
+.secao-cabras .cabecalho-planilha h3{color:#4e342e}
+.secao-cavalos .cabecalho-planilha h3{color:#4e342e}
+.btn-fechar{background:#f44336;color:white;border:none;width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+.btn-fechar:hover{background:#d32f2f;transform:rotate(90deg)}
+.calendario-orientacao{background:white;padding:20px;border-radius:10px;margin-bottom:25px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.calendario-orientacao h4{color:#333;margin-bottom:15px}
+.alerta-vacina{margin-bottom:20px;padding:15px;background:#fff3e0;border-left:4px solid #ff9800;border-radius:8px;color:#e65100;font-weight:500}
+.alerta-vacina strong{display:block;margin-bottom:5px}
+.tabela-vacinas{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.tabela-vacinas th{background:#4caf50;color:white;padding:12px;text-align:left;font-weight:600}
+.tabela-vacinas td{padding:10px 12px;border-bottom:1px solid #e0e0e0;color:#555}
+.tabela-vacinas tr:hover{background:#f5f5f5}
+.tabela-vacinas tr:last-child td{border-bottom:none}
+.form-vacina{background:white;padding:25px;border-radius:12px;margin-bottom:25px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+.form-vacina h4{color:#333;margin-bottom:20px;font-size:1.1rem}
+.grid-vacina{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.form-group-vacina{display:flex;flex-direction:column}
+.form-group-vacina label{margin-bottom:5px;font-weight:600;color:#555;font-size:0.9rem}
+.form-group-vacina input,.form-group-vacina select{padding:10px;border:2px solid #e0e0e0;border-radius:8px;font-size:0.95rem;transition:border-color 0.3s;font-family:'Poppins',sans-serif}
+.form-group-vacina input:focus,.form-group-vacina select:focus{outline:none;border-color:#2196F3}
+.btn-adicionar{margin-top:15px;padding:12px;background:linear-gradient(135deg,#4caf50 0%,#45a049 100%);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;transition:all 0.3s}
+.btn-adicionar:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(76,175,80,0.4)}
+.tabela-container{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.tabela-container h4{color:#333;margin-bottom:15px}
+.busca-vacina{margin-bottom:15px}
+.busca-vacina input{width:100%;padding:12px;border:2px solid #e0e0e0;border-radius:8px;font-size:0.95rem;font-family:'Poppins',sans-serif;transition:border-color 0.3s}
+.busca-vacina input:focus{outline:none;border-color:#2196F3}
+.tabela-scroll{max-height:400px;overflow-y:auto;border-radius:8px}
+.tabela-registros{width:100%;border-collapse:collapse;min-width:600px}
+.tabela-registros th{background:#2196F3;color:white;padding:14px 12px;text-align:left;font-weight:600;position:sticky;top:0;z-index:1}
+.tabela-registros td{padding:12px;border-bottom:1px solid #e0e0e0;color:#555}
+.tabela-registros tr:hover{background:#f0f8ff}
+.tabela-registros tr:last-child td{border-bottom:none}
+.linha-selecionada{background:#e3f2fd!important}
+.btn-excluir{background:#f44336;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;font-size:0.85rem;transition:all 0.3s}
+.btn-excluir:hover{background:#d32f2f;transform:scale(1.05)}
+.btn-ver-periodos{background:#e91e63;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;font-size:0.85rem;margin-right:5px;transition:all 0.3s}
+.btn-ver-periodos:hover{background:#c2185b;transform:scale(1.05)}
+.periodos-reprodutivos{margin-top:25px;padding:25px;background:white;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+.periodos-reprodutivos h4{color:#c2185b;margin-bottom:10px;font-size:1.2rem;text-align:center}
+.animal-selecionado{text-align:center;margin-bottom:20px;padding:10px;background:#fce4ec;border-radius:8px;color:#c2185b;font-weight:600;font-size:1.1rem}
+.topicos-reprodutivos{display:flex;flex-direction:column;gap:12px;margin-top:15px}
+.topico{display:flex;align-items:center;gap:15px;padding:15px 20px;border-radius:12px;transition:transform 0.3s}
+.topico:hover{transform:translateX(5px)}
+.topico-cio{background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);border-left:4px solid #2196F3}
+.topico-inseminacao{background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);border-left:4px solid #4caf50}
+.topico-diagnostico{background:linear-gradient(135deg,#e8eaf6 0%,#c5cae9 100%);border-left:4px solid #5c6bc0}
+.topico-repouso{background:linear-gradient(135deg,#fff3e0 0%,#ffe0b2 100%);border-left:4px solid #ff9800}
+.topico-preparto{background:linear-gradient(135deg,#f3e5f5 0%,#e1bee7 100%);border-left:4px solid #9c27b0}
+.topico-parto{background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);border-left:4px solid #e91e63}
+.icone-topico{font-size:2rem;min-width:50px;text-align:center}
+.conteudo-topico{flex:1;color:#333;line-height:1.6}
+.conteudo-topico strong{display:block;margin-bottom:3px}
+.conteudo-topico small{color:#666;font-size:0.85em}
+.resumo-reprodutivo{margin-top:20px;padding:15px 20px;background:#e8f5e9;border-radius:12px;text-align:center;border:2px dashed #4caf50}
+.resumo-reprodutivo p{color:#2e7d32;margin:0}
+.passo-teto{background:white;padding:25px;margin-bottom:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-left:5px solid #00bcd4}
+.passo-teto h4{color:#00838f;margin-bottom:15px;font-size:1.2rem}
+.passo-teto .subtitulo-passo{color:#666;margin-bottom:12px;font-style:italic}
+.passo-teto ul{list-style:none;padding:0}
+.passo-teto ul li{padding:8px 0;color:#444;line-height:1.7;border-bottom:1px solid #f0f0f0}
+.passo-teto ul li:last-child{border-bottom:none}
+.passo-teto ul li strong{color:#00838f}
+.alerta-timing{margin-top:20px;padding:20px;background:#fff3e0;border-left:4px solid #ff9800;border-radius:10px}
+.alerta-timing h4{color:#e65100;margin-bottom:10px}
+.alerta-timing p{color:#555;line-height:1.6}
+.alerta{margin-top:15px;padding:15px;background:#fff3cd;border-left:4px solid #ffc107;border-radius:5px;color:#856404}
+.guia-manejo{margin-top:25px;padding:25px;background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);border-radius:15px;border-left:5px solid #ec4899;animation:fadeIn 0.5s ease-in}
+.guia-manejo h3{color:#be185d;margin-bottom:20px;font-size:1.4rem}
+.guia-manejo-aves{margin-top:25px;padding:25px;background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-radius:15px;border-left:5px solid #f59e0b;animation:fadeIn 0.5s ease-in}
+.guia-manejo-aves h3{color:#b45309;margin-bottom:20px;font-size:1.4rem}
+.guia-manejo-ovelhas{margin-top:25px;padding:25px;background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);border-radius:15px;border-left:5px solid #66bb6a;animation:fadeIn 0.5s ease-in}
+.guia-manejo-ovelhas h3{color:#2e7d32;margin-bottom:20px;font-size:1.4rem}
+.guia-manejo-cabras{margin-top:25px;padding:25px;background:linear-gradient(135deg,#efebe9 0%,#d7ccc8 100%);border-radius:15px;border-left:5px solid #8d6e63;animation:fadeIn 0.5s ease-in}
+.guia-manejo-cabras h3{color:#4e342e;margin-bottom:20px;font-size:1.4rem}
+.guia-manejo-cavalos{margin-top:25px;padding:25px;background:linear-gradient(135deg,#efebe9 0%,#d7ccc8 100%);border-radius:15px;border-left:5px solid #795548;animation:fadeIn 0.5s ease-in}
+.guia-manejo-cavalos h3{color:#4e342e;margin-bottom:20px;font-size:1.4rem}
+
+/* MODO ESCURO */
+body.modo-escuro{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%)}
+body.modo-escuro .card{background:#2d2d44;color:#e0e0e0}
+body.modo-escuro .form-group label{color:#e0e0e0}
+body.modo-escuro .form-group input,body.modo-escuro .form-group select,body.modo-escuro .form-group textarea{background:#3d3d5c;border-color:#4d4d6e;color:#e0e0e0}
+body.modo-escuro .resultado{background:#3d3d5c;color:#e0e0e0}
+body.modo-escuro .checkboxes-implementos{background:#3d3d5c;border-color:#4d4d6e}
+body.modo-escuro .checkbox-item{background:#4d4d6e;color:#e0e0e0}
+body.modo-escuro .checkbox-item:hover{background:#3d5d3d}
+body.modo-escuro .manejo-cultura{background:linear-gradient(135deg,#1d2d1d 0%,#0d1d0d 100%)}
+body.modo-escuro .manejo-cultura h3{color:#81c784}
+body.modo-escuro .cultura-card{background:#2d3d2d}
+body.modo-escuro .cultura-card h4{color:#a5d6a7}
+body.modo-escuro .cultura-card p{color:#b0bec5}
+body.modo-escuro .cultura-card ul li{color:#ccc;border-bottom-color:#3d4d3d}
+body.modo-escuro .cultura-card ul li strong{color:#c8e6c9}
+body.modo-escuro .manutencao-maquinas{background:linear-gradient(135deg,#4a3d2a 0%,#3d2d1d 100%)}
+body.modo-escuro .manutencao-maquinas h3{color:#ffcc80}
+body.modo-escuro .maquina-card{background:#3d3d5c}
+body.modo-escuro .maquina-card h4{color:#ffcc80}
+body.modo-escuro .maquina-card ul li{color:#ccc;border-bottom-color:#4d4d6e}
+body.modo-escuro .maquina-card ul li strong{color:#fff}
+body.modo-escuro .higiene-ordenha{background:linear-gradient(135deg,#1a2d3d 0%,#0d1d2d 100%)}
+body.modo-escuro .higiene-ordenha h3{color:#81d4fa}
+body.modo-escuro .higiene-card{background:#2d3d4d}
+body.modo-escuro .higiene-card h4{color:#81d4fa}
+body.modo-escuro .higiene-card p{color:#b0bec5}
+body.modo-escuro .higiene-card ul li{color:#ccc;border-bottom-color:#3d4d5d}
+body.modo-escuro .higiene-card ul li strong{color:#b3e5fc}
+body.modo-escuro .alimentacao-leite{background:linear-gradient(135deg,#3d2d1d 0%,#2d1d0d 100%)}
+body.modo-escuro .alimentacao-leite h3{color:#ffcc80}
+body.modo-escuro .menu-acessibilidade{background:#2d2d44;color:#e0e0e0}
+body.modo-escuro .menu-acessibilidade h3{color:#e0e0e0}
+body.modo-escuro .btn-acess{background:#3d3d5c;color:#e0e0e0;border-color:#4d4d6e}
+body.modo-escuro .btn-voltar{background:#4d4d6e}
+body.modo-escuro .secao-planilha{background:linear-gradient(135deg,#2d3d2d 0%,#1d2d1d 100%);border-color:#3d5d3d}
+body.modo-escuro .secao-cio{background:linear-gradient(135deg,#3d2d3d 0%,#2d1d2d 100%);border-color:#5d3d5d}
+body.modo-escuro .secao-higiene{background:linear-gradient(135deg,#1a2d3d 0%,#0d1d2d 100%);border-color:#00838f}
+body.modo-escuro .secao-suinos{background:linear-gradient(135deg,#3d2d3d 0%,#2d1d2d 100%);border-color:#9d174d}
+body.modo-escuro .secao-aves{background:linear-gradient(135deg,#3d2d0d 0%,#2d1d00 100%);border-color:#b45309}
+body.modo-escuro .secao-ovelhas{background:linear-gradient(135deg,#1d2d1d 0%,#0d1d0d 100%);border-color:#388e3c}
+body.modo-escuro .secao-cabras{background:linear-gradient(135deg,#2d1d1d 0%,#1d0d0d 100%);border-color:#5d4037}
+body.modo-escuro .secao-cavalos{background:linear-gradient(135deg,#2d1d1d 0%,#1d0d0d 100%);border-color:#5d4037}
+body.modo-escuro .cabecalho-planilha h3{color:#81c784}
+body.modo-escuro .secao-cio .cabecalho-planilha h3{color:#f48fb1}
+body.modo-escuro .secao-higiene .cabecalho-planilha h3{color:#80deea}
+body.modo-escuro .secao-suinos .cabecalho-planilha h3{color:#f48fb1}
+body.modo-escuro .secao-aves .cabecalho-planilha h3{color:#fcd34d}
+body.modo-escuro .secao-ovelhas .cabecalho-planilha h3{color:#81c784}
+body.modo-escuro .secao-cabras .cabecalho-planilha h3{color:#bcaaa4}
+body.modo-escuro .secao-cavalos .cabecalho-planilha h3{color:#bcaaa4}
+body.modo-escuro .calendario-orientacao{background:#3d3d5c;color:#e0e0e0}
+body.modo-escuro .calendario-orientacao h4{color:#e0e0e0}
+body.modo-escuro .form-vacina{background:#3d3d5c}
+body.modo-escuro .form-vacina h4{color:#e0e0e0}
+body.modo-escuro .form-group-vacina label{color:#ccc}
+body.modo-escuro .form-group-vacina input,body.modo-escuro .form-group-vacina select{background:#4d4d6e;border-color:#5d5d7e;color:#e0e0e0}
+body.modo-escuro .tabela-container{background:#3d3d5c}
+body.modo-escuro .tabela-container h4{color:#e0e0e0}
+body.modo-escuro .busca-vacina input{background:#4d4d6e;border-color:#5d5d7e;color:#e0e0e0}
+body.modo-escuro .tabela-registros td{color:#ccc;border-bottom-color:#5d5d7e}
+body.modo-escuro .tabela-registros tr:hover{background:#4d4d6e}
+body.modo-escuro .linha-selecionada{background:#3d4d6e!important}
+body.modo-escuro .periodos-reprodutivos{background:#3d3d5c}
+body.modo-escuro .periodos-reprodutivos h4{color:#f48fb1}
+body.modo-escuro .animal-selecionado{background:#4d3d5d;color:#f48fb1}
+body.modo-escuro .topico-cio{background:linear-gradient(135deg,#2d3d4d 0%,#1d2d3d 100%)}
+body.modo-escuro .topico-inseminacao{background:linear-gradient(135deg,#2d4d2d 0%,#1d3d1d 100%)}
+body.modo-escuro .topico-diagnostico{background:linear-gradient(135deg,#2d2d4d 0%,#1d1d3d 100%)}
+body.modo-escuro .topico-repouso{background:linear-gradient(135deg,#4d3d2d 0%,#3d2d1d 100%)}
+body.modo-escuro .topico-preparto{background:linear-gradient(135deg,#4d2d4d 0%,#3d1d3d 100%)}
+body.modo-escuro .topico-parto{background:linear-gradient(135deg,#4d2d3d 0%,#3d1d2d 100%)}
+body.modo-escuro .conteudo-topico{color:#e0e0e0}
+body.modo-escuro .conteudo-topico small{color:#bbb}
+body.modo-escuro .resumo-reprodutivo{background:#2d3d2d;border-color:#3d5d3d}
+body.modo-escuro .resumo-reprodutivo p{color:#81c784}
+body.modo-escuro .tabela-vacinas{background:#3d3d5c}
+body.modo-escuro .tabela-vacinas td{color:#ccc;border-bottom-color:#5d5d7e}
+body.modo-escuro .tabela-vacinas tr:hover{background:#4d4d6e}
+body.modo-escuro .alerta-vacina{background:#4a3d2a;color:#ffcc80}
+body.modo-escuro .passo-teto{background:#2d3d4d}
+body.modo-escuro .passo-teto h4{color:#80deea}
+body.modo-escuro .passo-teto .subtitulo-passo{color:#b0bec5}
+body.modo-escuro .passo-teto ul li{color:#ccc;border-bottom-color:#3d4d5d}
+body.modo-escuro .passo-teto ul li strong{color:#b3e5fc}
+body.modo-escuro .alerta-timing{background:#4a3d2a}
+body.modo-escuro .alerta-timing h4{color:#ffcc80}
+body.modo-escuro .alerta-timing p{color:#ccc}
+body.modo-escuro .alerta{background:#4a4a2a;color:#e0e0e0}
+body.modo-escuro .guia-manejo{background:linear-gradient(135deg,#3d2d3d 0%,#2d1d2d 100%)}
+body.modo-escuro .guia-manejo h3{color:#f48fb1}
+body.modo-escuro .guia-manejo-aves{background:linear-gradient(135deg,#3d2d0d 0%,#2d1d00 100%)}
+body.modo-escuro .guia-manejo-aves h3{color:#fcd34d}
+body.modo-escuro .guia-manejo-ovelhas{background:linear-gradient(135deg,#1d2d1d 0%,#0d1d0d 100%)}
+body.modo-escuro .guia-manejo-ovelhas h3{color:#81c784}
+body.modo-escuro .guia-manejo-cabras{background:linear-gradient(135deg,#2d1d1d 0%,#1d0d0d 100%)}
+body.modo-escuro .guia-manejo-cabras h3{color:#bcaaa4}
+body.modo-escuro .guia-manejo-cavalos{background:linear-gradient(135deg,#2d1d1d 0%,#1d0d0d 100%)}
+body.modo-escuro .guia-manejo-cavalos h3{color:#bcaaa4}
+body.modo-escuro .btn-suinos{background:linear-gradient(135deg,#9d174d 0%,#831843 100%)}
+body.modo-escuro .btn-ovelhas{background:linear-gradient(135deg,#388e3c 0%,#1b5e20 100%)}
+body.modo-escuro .btn-cabras{background:linear-gradient(135deg,#5d4037 0%,#3e2723 100%)}
+body.modo-escuro .btn-cavalos{background:linear-gradient(135deg,#4e342e 0%,#3e2723 100%)}
+body.modo-escuro .btn-aves{background:linear-gradient(135deg,#b45309 0%,#92400e 100%)}
+
+@media(max-width:768px){
+.botoes-selecao{grid-template-columns:1fr 1fr}
+.grid-vacina{grid-template-columns:1fr}
+.botoes-acoes{flex-direction:column}
+.btn-planilha{width:100%;justify-content:center}
+.tabela-scroll{max-height:300px}
+.tabela-registros{font-size:0.85rem}
+.tabela-registros th,.tabela-registros td{padding:8px 6px}
+}
+@media(max-width:600px){
+.botoes-selecao{grid-template-columns:1fr}
+.header h1{font-size:1.8rem}
+.container{max-width:100%}
 }
