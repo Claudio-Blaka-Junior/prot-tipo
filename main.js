@@ -430,5 +430,5 @@ function getCategoryName(category) {
 }
 
 // Mensagem inicial
-console.log('🌾 Script do AgroMarket carregado!');
+console.log('🌾 Script do AgroMarket carregado!') ;
 console.log('📦 Aguardando carregamento da página...');
